@@ -1,0 +1,14 @@
+name: Build
+on: [push]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '9.0.4'
+          architecture: x64
+      - run: ./gradlew hello_android_app:build
